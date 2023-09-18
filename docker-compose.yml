@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  rotki:
+    container_name: rotki
+    image: rotki/rotki:latest
+    hostname: rotki
+    environment:
+      - TZ=Asia/Kuching
+    volumes:
+      - /data/rotki/data:/data:rw
+      - /data/rotki/logs:/logs:rw
+    ports:
+      - 8295:80
+    restart: unless-stopped
